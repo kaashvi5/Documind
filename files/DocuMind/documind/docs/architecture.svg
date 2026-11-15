@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" font-family="Helvetica, Arial, sans-serif">
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5B5FE8"/></marker>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3F6BF4"/><stop offset="1" stop-color="#7B5CF0"/></linearGradient>
+</defs>
+<rect width="1100" height="560" fill="#F5F6FB"/>
+<text x="40" y="44" font-size="22" font-weight="700" fill="#1A1D3B">DocuMind architecture</text>
+<text x="40" y="66" font-size="13" fill="#667085">Two independent flows share one FAISS index and one metadata registry.</text>
+
+<text x="40" y="110" font-size="14" font-weight="700" fill="#1A1D3B">A. Indexing (when documents are uploaded)</text>
+<g font-size="13" fill="#1A1D3B" text-anchor="middle">
+<rect x="40" y="125" width="130" height="62" rx="12" fill="#fff" stroke="#E3E6F2"/><text x="105" y="152">Upload</text><text x="105" y="170" font-size="11" fill="#667085">PDF DOCX TXT MD</text>
+<rect x="195" y="125" width="130" height="62" rx="12" fill="#fff" stroke="#E3E6F2"/><text x="260" y="152">Extract</text><text x="260" y="170" font-size="11" fill="#667085">pypdf, python-docx</text>
+<rect x="350" y="125" width="130" height="62" rx="12" fill="#fff" stroke="#E3E6F2"/><text x="415" y="152">Clean</text><text x="415" y="170" font-size="11" fill="#667085">regex, unicode</text>
+<rect x="505" y="125" width="130" height="62" rx="12" fill="#fff" stroke="#E3E6F2"/><text x="570" y="152">Chunk</text><text x="570" y="170" font-size="11" fill="#667085">sentences + overlap</text>
+<rect x="660" y="125" width="130" height="62" rx="12" fill="#fff" stroke="#E3E6F2"/><text x="725" y="152">Metadata</text><text x="725" y="170" font-size="11" fill="#667085">file, page, chunk id</text>
+<rect x="815" y="125" width="110" height="62" rx="12" fill="#EAF0FF" stroke="#C9D3FA"/><text x="870" y="152">Embed</text><text x="870" y="170" font-size="11" fill="#667085">MiniLM-L6</text>
+<rect x="950" y="125" width="110" height="62" rx="12" fill="url(#g)"/><text x="1005" y="152" fill="#fff" font-weight="700">FAISS</text><text x="1005" y="170" font-size="11" fill="#fff">+ JSON registry</text>
+</g>
+<g stroke="#5B5FE8" stroke-width="2" marker-end="url(#a)"><path d="M170 156H193"/><path d="M325 156H348"/><path d="M480 156H503"/><path d="M635 156H658"/><path d="M790 156H813"/><path d="M925 156H948"/></g>
+
+<rect x="40" y="225" width="1020" height="46" rx="12" fill="#F1ECFF" stroke="#DCD2FA"/>
+<text x="550" y="253" font-size="13" text-anchor="middle" fill="#4B3CB0">data/vector_db/index.faiss + metadata.json (atomic writes, reconciled on load) | data/uploads/ (original files)</text>
+<g stroke="#7B5CF0" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a)"><path d="M1005 187V223"/></g>
+
+<text x="40" y="318" font-size="14" font-weight="700" fill="#1A1D3B">B. Question answering (each question)</text>
+<g font-size="13" fill="#1A1D3B" text-anchor="middle">
+<rect x="40" y="335" width="125" height="62" rx="12" fill="#fff" stroke="#E3E6F2"/><text x="102" y="362">Question</text><text x="102" y="380" font-size="11" fill="#667085">+ follow-up context</text>
+<rect x="190" y="335" width="125" height="62" rx="12" fill="#EAF0FF" stroke="#C9D3FA"/><text x="252" y="362">Query embedding</text><text x="252" y="380" font-size="11" fill="#667085">same model</text>
+<rect x="340" y="335" width="125" height="62" rx="12" fill="url(#g)"/><text x="402" y="362" fill="#fff" font-weight="700">Vector search</text><text x="402" y="380" font-size="11" fill="#fff">cosine, FAISS</text>
+<rect x="490" y="335" width="125" height="62" rx="12" fill="#fff" stroke="#E3E6F2"/><text x="552" y="362">Threshold</text><text x="552" y="380" font-size="11" fill="#667085">drop weak matches</text>
+<rect x="640" y="335" width="125" height="62" rx="12" fill="#fff" stroke="#E3E6F2"/><text x="702" y="362">Rerank</text><text x="702" y="380" font-size="11" fill="#667085">keyword coverage</text>
+<rect x="790" y="335" width="125" height="62" rx="12" fill="#fff" stroke="#E3E6F2"/><text x="852" y="362">Context</text><text x="852" y="380" font-size="11" fill="#667085">token-budgeted prompt</text>
+<rect x="940" y="335" width="120" height="62" rx="12" fill="#fff" stroke="#E3E6F2"/><text x="1000" y="362">FLAN-T5</text><text x="1000" y="380" font-size="11" fill="#667085">local LLM</text>
+</g>
+<g stroke="#5B5FE8" stroke-width="2" marker-end="url(#a)"><path d="M165 366H188"/><path d="M315 366H338"/><path d="M465 366H488"/><path d="M615 366H638"/><path d="M765 366H788"/><path d="M915 366H938"/></g>
+<g stroke="#7B5CF0" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a)"><path d="M402 335V273"/></g>
+
+<g font-size="13" text-anchor="middle" fill="#1A1D3B">
+<rect x="640" y="455" width="420" height="70" rx="14" fill="#fff" stroke="#C9D3FA" stroke-width="2"/>
+<text x="850" y="483" font-weight="700">Answer + citations</text>
+<text x="850" y="504" font-size="11.5" fill="#667085">filename, page, passage, similarity score, source number</text>
+<rect x="40" y="455" width="540" height="70" rx="14" fill="#FFF4E0" stroke="#F1D9A8"/>
+<text x="310" y="483" font-weight="700" fill="#9A5B06">Honest "not found"</text>
+<text x="310" y="504" font-size="11.5" fill="#9A5B06">no chunk above threshold, or the model replies "unanswerable"</text>
+</g>
+<g stroke="#5B5FE8" stroke-width="2" marker-end="url(#a)"><path d="M1000 397V428H850V453"/></g>
+<g stroke="#C98A1B" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a)"><path d="M552 397V428H310V453"/></g>
+</svg>

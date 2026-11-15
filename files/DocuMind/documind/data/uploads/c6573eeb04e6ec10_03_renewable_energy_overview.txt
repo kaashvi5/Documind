@@ -1,0 +1,15 @@
+Renewable Energy Overview
+
+Renewable energy comes from sources that are naturally replenished, such as sunlight, wind, flowing water and heat from the earth. Using these sources produces far fewer greenhouse gas emissions than burning coal, oil or natural gas.
+
+Solar power. Photovoltaic panels convert sunlight directly into electricity using semiconductor cells. Commercial panels typically reach an efficiency of 18 to 22 percent. Because the sun does not shine at night and is weaker in cloudy weather, a solar plant usually has a capacity factor of only 15 to 25 percent.
+
+Wind power. Wind turbines turn the kinetic energy of moving air into electricity. Onshore wind farms usually have a capacity factor of 30 to 40 percent, while offshore wind farms reach 40 to 50 percent because winds at sea are stronger and steadier. Offshore projects are more expensive to build and maintain.
+
+Hydropower. Hydropower is the largest source of renewable electricity worldwide. Dams store water in a reservoir and release it through turbines. Run-of-river plants use the natural flow without a large reservoir. Pumped storage plants pump water uphill when electricity is cheap and release it when demand is high, which makes them a form of energy storage.
+
+Geothermal and biomass. Geothermal plants use steam or hot water from underground to drive turbines and can run around the clock. Biomass plants burn organic material such as wood waste or crop residue, or convert it into biofuels.
+
+Challenges. The main challenge of wind and solar power is intermittency: output changes with the weather and the time of day. Grid operators handle this with energy storage, such as lithium-ion batteries and pumped hydro, with long-distance transmission lines, and with demand management. Integrating large shares of variable generation also requires upgrades to the electricity grid.
+
+Costs. The levelized cost of energy, abbreviated LCOE, is the average cost per unit of electricity over the lifetime of a power plant, including construction, fuel and maintenance. The LCOE of solar and onshore wind has fallen steadily as technology improved and manufacturing scaled up.
